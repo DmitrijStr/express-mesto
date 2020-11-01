@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/DmitrijStr/express-mesto.git"
   },
-  "author": "",
+  "author": "Strezh Dmitrij",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DmitrijStr/express-mesto/issues"

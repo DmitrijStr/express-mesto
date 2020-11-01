@@ -1,12 +1,13 @@
 import path from 'path';
 import read from '../utils/read-file.mjs';
+
 const pathToData = path.join(path.resolve(), 'data', 'users.json');
 
 export const getUsers = (req, res) => {
   read(pathToData)
     .then((data) => res.send(data))
     .catch(() => {
-      res.status(404).send({ message: 'Нет такого файла' });
+      res.status(500).send({ message: 'Нет такого файла' });
     });
 };
 
