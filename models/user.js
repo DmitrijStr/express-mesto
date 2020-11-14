@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: function validate(v) {
-        return /https?:\/\/[\w\d.\-/]*/g.test(v);
+        return /https?:\/\/(\d|\w)+[.\-/\d\w]+/g.test(v);
       },
       message: (props) => `${props.value} is not a valid url!`,
     },
