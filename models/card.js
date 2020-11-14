@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const cardSchema = new mongoose.Schema({
   name: {
@@ -12,7 +12,7 @@ const cardSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: function validate(v) {
-        return /https?:\/\/(.*)/g.test(v);
+        return /https?:\/\/[\w\d.\-/]*/g.test(v);
       },
       message: (props) => `${props.value} is not a valid url!`,
     },
@@ -35,4 +35,4 @@ const cardSchema = new mongoose.Schema({
 
 const cardModel = mongoose.model('card', cardSchema);
 
-export default cardModel;
+module.exports = cardModel;

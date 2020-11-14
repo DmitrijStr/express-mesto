@@ -1,8 +1,8 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import path from 'path';
-import bodyParser from 'body-parser';
-import routerMethod from './routes/index.mjs';
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+const router = require('./routes/index.js');
 
 const PORT = 3000;
 const app = express();
@@ -22,8 +22,6 @@ app.use((req, res, next) => {
   };
   next();
 });
-
-app.use(express.static(path.join(path.resolve(), 'public')));
-app.use('/', routerMethod);
+app.use('/', router);
 
 app.listen(PORT, () => console.log(`listening to port: ${PORT}`));

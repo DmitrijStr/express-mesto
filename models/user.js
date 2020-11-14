@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: function validate(v) {
-        return /https?:\/\/(.*)/g.test(v);
+        return /https?:\/\/[\w\d.\-/]*/g.test(v);
       },
       message: (props) => `${props.value} is not a valid url!`,
     },
@@ -27,4 +27,4 @@ const userSchema = new mongoose.Schema({
 
 const userModer = mongoose.model('user', userSchema);
 
-export default userModer;
+module.exports = userModer;

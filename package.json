@@ -4,8 +4,8 @@
   "description": "## Директории",
   "main": "app.mjs",
   "scripts": {
-    "start": "node --experimental-modules app.mjs",
-    "dev": "nodemon --experimental-modules app.mjs"
+    "start": "node --experimental-modules app.js",
+    "dev": "nodemon --experimental-modules app.js"
   },
   "repository": {
     "type": "git",
